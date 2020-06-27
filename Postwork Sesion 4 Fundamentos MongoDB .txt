@@ -1,0 +1,72 @@
+
+-- cual es top 5 de userid y assigned metric con mas conscientousness?
+
+{
+ project: {
+  userid: 1,
+  'assigned metric': 1,
+  conscientiousness: 1
+ },
+ sort: {
+  conscientiousness: -1
+ },
+ limit: 5
+}
+
+
+-- cual es top 5 de userid y assigned metric con mas openness?
+
+{
+ project: {
+  userid: 1,
+  'assigned metric': 1,
+  openness: 1
+ },
+ sort: {
+  openness: -1
+ },
+ limit: 5
+}
+
+
+-- cual es top 5 de userid y assigned metric con mas agreebleness?
+{
+ project: {
+  userid: 1,
+  'assigned metric': 1,
+  agreeableness: 1
+ },
+ sort: {
+  agreeableness: -1
+ },
+ limit: 5
+}
+
+
+-- cual es top 5 de userid y assigned metric con mas emotional stability?
+
+{
+ project: {
+  userid: 1,
+  'assigned metric': 1,
+  emotional_stability: 1
+ },
+ sort: {
+  emotional_stability: -1
+ },
+ limit: 5
+}
+
+-- cual es top 5 de userid y assigned metric con mas extraversion?
+
+{
+ project: {
+  userid: 1,
+  'assigned metric': 1,
+  extraversion: 1
+ },
+ sort: {
+  extraversion: -1
+ },
+ limit: 5
+}
