@@ -1,0 +1,103 @@
+// 1.	¿Cuántos usuarios se tiene registrados en Personalities con un Assigned Metric de Popularity? //
+{"assigned metric": "popularity"}
+
+// 2.	¿Cuántos usuarios se tiene registrados  en Personalities con un Assigned Metric de Serendepity?  //
+{"assigned metric": "serendipity"}
+// 3.	¿Qué películas recibieron Ratings de “4 y 5”? // 
+{"rating": {$in: (4,5)}}
+// 4.	¿Qué películas recibieron Ratings de “entre 0.5 y 2”? //
+{"rating": {$in: (1,2.0)}}
+// 5.	¿Qué usuarios tienen una con un Assigned Metric de Popularity  , grado de Assigned Condition : Alto? //
+{
+ filter: {
+  'assigned metric': 'popularity',
+  'assigned condition': 'high'
+ },
+ project: {
+  userid: 1,
+  'assigned metric': 1,
+  'assigned condition': 1
+ }
+}
+// 6.	¿Qué usuarios tienen una con un Assigned Metric de Serendepity  , grado de Assigned Condition : Bajo? //
+{
+ filter: {
+  'assigned metric': 'serendipity',
+  'assigned condition': 'low'
+ },
+ project: {
+  userid: 1,
+  'assigned metric': 1,
+  'assigned condition': 1
+ }
+}
+// 7.	¿Qué usuarios tienen un Assigned Metric de Popularity , un  grado de Assigned Condition : Bajo y opinan que la lista de películas fue personalizada para ellos? //
+{
+ filter: {
+  'assigned metric': 'popularity',
+  'assigned condition': 'low',
+  is_personalized: {
+   $gte: 4
+  }
+ },
+ project: {
+  userid: 1,
+  'assigned metric': 1,
+  'assigned condition': 1,
+  is_personalized: 1
+ }
+}
+// 8.	¿Qué usuarios tienen un Assigned Metric de Serendepity , un  grado de Assigned Condition : Medio y opinan que la lista de películas fue personalizada para ellos? //
+{
+ filter: {
+  'assigned metric': 'serendipity',
+  'assigned condition': 'medium',
+  is_personalized: {
+   $lte: 2
+  }
+ },
+ project: {
+  userid: 1,
+  'assigned metric': 1,
+  'assigned condition': 1,
+  is_personalized: 1
+ }
+}
+// 9.	¿Cual es Assigned Metric con mayor nivel de Openness en promedio? //
+
+[{$match: {
+  "assigned metric": "all"
+}}, {$group: {
+  _id: "assigned metric",
+  Registros: {
+    $sum: 1
+  }
+}}]
+// 10.	¿Cual es Assigned Metric con mayor nivel de Emotional Stability en promedio? //
+
+[{$match: {
+  "assigned metric": "diversity"
+}}, {$group: {
+  _id: "assigned metric",
+  Registros: {
+    $sum: 1
+  }
+}}]
+// 11.	¿Cual es Assigned Metric con mayor nivel de Openness en promedio? //
+
+[{$match: {
+  "assigned metric": "popularity"
+}}, {$group: {
+  _id: "assigned metric" ,
+  Registros: {
+    $sum: 1
+  }
+}}]
+// 12.	¿Cuál es Assigned Metric más común? //
+NO logrado
+// 13.	¿Cuál es Assigned Metric menos común? //
+NO logrado
+// 14.	¿Cuál es Assigned Metric por cada tipo? // 
+NO logrado
+//  15.	¿Cuál fue el promedio de “Rating” de cada película que le dio cada tipo de “Assigned Metric” agrupados por su “Assigned Metric”  & “Assigned Condition” , adicional mostrar el grado Linkert de si pensaron que la lista fue personalizada? //
+NO logrado
